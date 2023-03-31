@@ -25,31 +25,31 @@ public class BibliotecarioController {
     private final LivroService livroService;
     private final AlunoService alunoService;
 
-    @PostMapping()
+    @PostMapping("/criar/bibliotecario")
     public ResponseEntity save(@RequestBody BibliotecarioDTO bibliotecarioDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(bibliotecarioService.save(bibliotecarioDTO));
 
     }
-    @PostMapping("/aluno")
+    @PostMapping("/criar/aluno")
     public ResponseEntity saveAluno(@RequestBody AlunoDTO alunoDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(alunoService.save(alunoDTO));
     }
 
-    @PostMapping("/livro")
+    @PostMapping("/criar/livro")
     public ResponseEntity saveLivro (@RequestBody LivroDTO livroDTO){
         return ResponseEntity.status(HttpStatus.CREATED).
                 body(livroService.saveLivro(livroDTO));
     }
-    @GetMapping("/{bibliotecario}")
+    @GetMapping("/buscar/bibliotecario/{bibliotecario}")
     public ResponseEntity <Bibliotecario> findByNome(@PathVariable("nome")String nome){
         return ResponseEntity.ok(bibliotecarioService.findByNome(nome));
     }
-    @GetMapping("/{aluno}")
+    @GetMapping("/buscar/aluno/{aluno}")
     public ResponseEntity<Aluno> findByNomeAluno (@PathVariable("nome") String nome){
         return ResponseEntity.ok(alunoService.findByNome(nome));
     }
 
-    @GetMapping("/{livro}")
+    @GetMapping("/buscar/livro{livro}")
     public ResponseEntity<Livro> findByNomeLivro (@PathVariable("nome") String nome){
         return ResponseEntity.ok(livroService.findByNome(nome));
     }
