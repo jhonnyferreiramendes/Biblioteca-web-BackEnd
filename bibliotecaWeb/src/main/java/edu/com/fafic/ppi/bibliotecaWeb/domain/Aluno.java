@@ -1,6 +1,7 @@
 package edu.com.fafic.ppi.bibliotecaWeb.domain;
 
 import edu.com.fafic.ppi.bibliotecaWeb.enums.Area;
+import edu.com.fafic.ppi.bibliotecaWeb.enums.Genero;
 import edu.com.fafic.ppi.bibliotecaWeb.enums.Periodo;
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
@@ -28,10 +29,14 @@ public class Aluno extends Usuario {
     @Max(10)
     private int periodo;
 
-    @Enumerated(EnumType.STRING)
-    private Area area;
 
 
 
 
+    public Aluno(String nome, String cpf, Genero genero, String matricula, Endereco endereco, Contato contato, Login login, Curso curso, int periodo) {
+        super(nome, cpf, genero, matricula, endereco, contato, login);
+        this.curso = curso;
+        this.periodo = periodo;
+
+    }
 }

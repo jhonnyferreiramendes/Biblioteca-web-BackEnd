@@ -12,5 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 public interface LivroRepository extends JpaRepository<Livro,Long> {
 
+    Livro findByNome(String nome);
+
 
 }

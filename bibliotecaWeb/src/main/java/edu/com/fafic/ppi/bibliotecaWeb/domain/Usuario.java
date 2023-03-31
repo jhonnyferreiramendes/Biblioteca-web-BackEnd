@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "tipo")
 @Data
+@NoArgsConstructor
 
 
 public abstract class Usuario {
@@ -42,8 +44,16 @@ public abstract class Usuario {
     @Embedded
     private  Contato contato;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Login login;
 
-
+    public Usuario(String nome, String cpf, Genero genero, String matricula, Endereco endereco, Contato contato, Login login) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.genero = genero;
+        this.matricula = matricula;
+        this.endereco = endereco;
+        this.contato = contato;
+        this.login = login;
+    }
 }

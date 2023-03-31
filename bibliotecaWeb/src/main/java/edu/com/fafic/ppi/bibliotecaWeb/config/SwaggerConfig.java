@@ -20,5 +20,4 @@ public class SwaggerConfig {
     }
 }
 
-//http://localhost:8080/swagger-ui/index.html#/paciente-controller/saveUsingPOST_1
-
+//localhost:8080/swagger-ui/index.html#/paciente-controller/saveUsingPOST_1

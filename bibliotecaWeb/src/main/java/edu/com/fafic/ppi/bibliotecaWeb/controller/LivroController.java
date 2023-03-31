@@ -1,6 +1,7 @@
-package edu.com.fafic.ppi.bibliotecaWeb.controller;
+/*package edu.com.fafic.ppi.bibliotecaWeb.controller;
 
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Livro;
+import edu.com.fafic.ppi.bibliotecaWeb.dto.LivroDTO;
 import edu.com.fafic.ppi.bibliotecaWeb.services.LivroService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,16 +15,17 @@ public class LivroController {
 
     private final LivroService livroService;
 
-    @PostMapping
-    public ResponseEntity save (@RequestBody Livro livro){
+    @PostMapping()
+    public ResponseEntity save (@RequestBody LivroDTO livroDTO){
         return ResponseEntity.status(HttpStatus.CREATED).
-                body(livroService.save(livro));
+                body(livroService.saveLivro(livroDTO));
     }
 
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Livro> findById (@PathVariable("id") long id){
-        return ResponseEntity.ok(livroService.findById(id));
+    @GetMapping("/{nome}")
+    public ResponseEntity<Livro> findByNome (@PathVariable("nome") String nome){
+        return ResponseEntity.ok(livroService.findByNome(nome));
     }
 
 }
+*/

@@ -1,6 +1,7 @@
 package edu.com.fafic.ppi.bibliotecaWeb.services;
 
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Livro;
+import edu.com.fafic.ppi.bibliotecaWeb.dto.LivroDTO;
 import edu.com.fafic.ppi.bibliotecaWeb.repositories.LivroRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,12 +12,18 @@ public class LivroService {
 
     private final LivroRepository livroRepository;
 
-    public Livro save(Livro livro){
+
+    public Livro saveLivro(LivroDTO livroDTO){
+        var livro = new Livro(
+                livroDTO.getNome(),
+                livroDTO.getIsbn(),
+                livroDTO.getArea());
         return livroRepository.save(livro);
+
     }
 
-    public Livro findById(long id){
-        return livroRepository.findById(id).get();
+    public Livro findByNome(String nome){
+        return livroRepository.findByNome(nome);
     }
 
 }

@@ -12,8 +12,6 @@ public class Curso {
     @NotBlank
     private String nomeDoCurso;
 
-    @NotBlank
-    private String AreaDoCurso;
 }
 
 

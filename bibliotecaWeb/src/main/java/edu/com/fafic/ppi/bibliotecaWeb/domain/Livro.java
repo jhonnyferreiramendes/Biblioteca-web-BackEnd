@@ -32,6 +32,9 @@ public class Livro {
     @Enumerated(EnumType.STRING)
     private Area area;
 
-
-
+    public Livro(String nome, String isbn, Area area) {
+        this.nome = nome;
+        this.isbn = isbn;
+        this.area = area;
+    }
 }
