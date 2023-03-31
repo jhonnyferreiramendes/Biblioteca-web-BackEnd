@@ -1,8 +1,8 @@
 package edu.com.fafic.ppi.bibliotecaWeb.domain;
 
 import edu.com.fafic.ppi.bibliotecaWeb.enums.Area;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

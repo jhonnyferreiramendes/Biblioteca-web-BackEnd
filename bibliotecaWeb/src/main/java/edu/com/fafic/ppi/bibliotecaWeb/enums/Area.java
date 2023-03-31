@@ -2,8 +2,8 @@ package edu.com.fafic.ppi.bibliotecaWeb.enums;
 
 public enum Area {
 
-    HOMANAS("Humanas"),
-    EAtAS("Exatas");
+    Humanas("Humanas"),
+    Exatas("Exatas");
 
     private String area;
 

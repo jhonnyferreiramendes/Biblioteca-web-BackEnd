@@ -1,7 +1,7 @@
 package edu.com.fafic.ppi.bibliotecaWeb.domain;
 
 
-import jakarta.persistence.Embeddable;
+import javax.persistence.Embeddable;
 import lombok.Data;
 
 @Embeddable

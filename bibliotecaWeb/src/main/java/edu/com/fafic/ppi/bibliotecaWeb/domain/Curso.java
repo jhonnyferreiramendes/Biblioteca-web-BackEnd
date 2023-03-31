@@ -1,8 +1,8 @@
 package edu.com.fafic.ppi.bibliotecaWeb.domain;
 
 
-import jakarta.persistence.Embeddable;
-import jakarta.validation.constraints.NotBlank;
+import javax.persistence.Embeddable;
+import javax.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
