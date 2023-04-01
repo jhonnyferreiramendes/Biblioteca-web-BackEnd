@@ -45,12 +45,12 @@ public class BibliotecarioController {
         return ResponseEntity.ok(bibliotecarioService.findByNome(nome));
     }
     @GetMapping("/buscar/aluno/{aluno}")
-    public ResponseEntity<Aluno> findByNomeAluno (@PathVariable("nome") String nome){
+    public ResponseEntity<Aluno> findByNomeAluno (@PathVariable("aluno") String nome){
         return ResponseEntity.ok(alunoService.findByNome(nome));
     }
 
-    @GetMapping("/buscar/livro{livro}")
-    public ResponseEntity<Livro> findByNomeLivro (@PathVariable("nome") String nome){
+    @GetMapping("/buscar/livro/{livro}")
+    public ResponseEntity<Livro> findByNomeLivro (@PathVariable("livro") String nome){
         return ResponseEntity.ok(livroService.findByNome(nome));
     }
 

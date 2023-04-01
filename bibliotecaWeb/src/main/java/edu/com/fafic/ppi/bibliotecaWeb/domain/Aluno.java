@@ -4,10 +4,8 @@ import edu.com.fafic.ppi.bibliotecaWeb.enums.Area;
 import edu.com.fafic.ppi.bibliotecaWeb.enums.Genero;
 import edu.com.fafic.ppi.bibliotecaWeb.enums.Periodo;
 import javax.persistence.*;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +22,7 @@ public class Aluno extends Usuario {
    @Embedded
    private Curso curso;
 
-    @NotBlank
+    @NotNull
     @Min(1)
     @Max(10)
     private int periodo;
