@@ -28,9 +28,6 @@ public class Aluno extends Usuario {
     private int periodo;
 
 
-
-
-
     public Aluno(String nome, String cpf, Genero genero, String matricula, Endereco endereco, Contato contato, Login login, Curso curso, int periodo) {
         super(nome, cpf, genero, matricula, endereco, contato, login);
         this.curso = curso;
