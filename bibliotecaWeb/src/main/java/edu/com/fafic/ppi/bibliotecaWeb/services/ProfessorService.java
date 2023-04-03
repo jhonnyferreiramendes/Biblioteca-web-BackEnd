@@ -31,4 +31,8 @@ public class ProfessorService {
         return professorRepository.findByNome(nome);
     }
 
+    public Professor findByMatricula(String matricula){
+        return professorRepository.findByNome(matricula);
+    }
+
 }

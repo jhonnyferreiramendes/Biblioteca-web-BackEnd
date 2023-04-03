@@ -15,9 +15,6 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
-
-
 public class Emprestimo {
 
     @Id
@@ -38,4 +35,11 @@ public class Emprestimo {
 
     @Embedded
     private Devolucao devolucao;
+
+    public Emprestimo(Usuario usuario, LocalDateTime dataEmprestimo, Livro livrosLocados, Devolucao devolucao) {
+        this.usuario = usuario;
+        this.dataEmprestimo = dataEmprestimo;
+        this.livrosLocados = livrosLocados;
+        this.devolucao = devolucao;
+    }
 }

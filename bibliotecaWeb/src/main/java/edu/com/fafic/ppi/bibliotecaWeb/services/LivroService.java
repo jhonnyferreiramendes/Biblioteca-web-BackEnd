@@ -26,4 +26,12 @@ public class LivroService {
         return livroRepository.findByNome(nome);
     }
 
+    public Livro findByIsbn(String isbn){
+        return livroRepository.findByIsbn(isbn);
+    }
+
+    public Livro findByArea(String area){
+        return livroRepository.findByArea(area);
+    }
+
 }

@@ -31,5 +31,9 @@ public class AlunoService {
         return alunoRepository.findByNome(nome);
     }
 
+    public Aluno findByMatricula(String matricula){
+        return alunoRepository.findByMatricula(matricula);
+    }
+
 
 }

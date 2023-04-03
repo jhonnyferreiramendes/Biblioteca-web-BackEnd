@@ -27,13 +27,11 @@ public class BibliotecarioController {
     private final BibliotecarioService bibliotecarioService;
     private final LivroService livroService;
     private final AlunoService alunoService;
-
     private final ProfessorService professorService;
 
     @PostMapping("/criar/bibliotecario")
     public ResponseEntity save(@RequestBody BibliotecarioDTO bibliotecarioDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(bibliotecarioService.save(bibliotecarioDTO));
-
     }
     @PostMapping("/criar/aluno")
     public ResponseEntity saveAluno(@RequestBody AlunoDTO alunoDTO){
@@ -50,21 +48,41 @@ public class BibliotecarioController {
         return ResponseEntity.status(HttpStatus.CREATED).
                 body(livroService.saveLivro(livroDTO));
     }
-    @GetMapping("/buscar/bibliotecario/{bibliotecario}")
+    @GetMapping("/buscarNome/bibliotecario/{bibliotecario}")
     public ResponseEntity <Bibliotecario> findByNomeBibliotecario(@PathVariable("bibliotecario")String nome){
         return ResponseEntity.ok(bibliotecarioService.findByNome(nome));
     }
-    @GetMapping("/buscar/aluno/{aluno}")
+    @GetMapping("/buscarNome/aluno/{aluno}")
     public ResponseEntity<Aluno> findByNomeAluno (@PathVariable("aluno") String nome){
         return ResponseEntity.ok(alunoService.findByNome(nome));
     }
 
-    @GetMapping("/buscar/professor/{professor}")
+    @GetMapping("/buscarNome/professor/{professor}")
     public ResponseEntity<Professor> findByNomeProfessor (@PathVariable("professor") String nome){
         return ResponseEntity.ok(professorService.findByNome(nome));
     }
 
-    @GetMapping("/buscar/livro/{livro}")
+    @GetMapping("/buscarMatricula/aluno/{aluno}")
+    public ResponseEntity<Aluno> findByMatriculaAluno (@PathVariable("aluno") String matricula){
+        return ResponseEntity.ok(alunoService.findByMatricula(matricula));
+    }
+
+    @GetMapping("/buscarMatricula/professor/{professor}")
+    public ResponseEntity<Professor> findByMatriculaProfessor (@PathVariable("professor") String matricula){
+        return ResponseEntity.ok(professorService.findByMatricula(matricula));
+    }
+
+    @GetMapping("/buscarArea/livro/{livro}")
+    public ResponseEntity<Livro> findByAreaLivro (@PathVariable("livro") String area){
+        return ResponseEntity.ok(livroService.findByArea(area));
+    }
+
+    @GetMapping("/buscarIsbn/livro/{livro}")
+    public ResponseEntity<Livro> findByIsbnLivro (@PathVariable("livro") String isbn){
+        return ResponseEntity.ok(livroService.findByIsbn(isbn));
+    }
+
+    @GetMapping("/buscarNome/livro/{livro}")
     public ResponseEntity<Livro> findByNomeLivro (@PathVariable("livro") String nome){
         return ResponseEntity.ok(livroService.findByNome(nome));
     }

@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 
 public class Devolucao {
 
-
     @NotBlank
     private LocalDateTime dataDevolucao;
 
