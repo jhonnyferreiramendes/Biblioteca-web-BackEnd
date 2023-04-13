@@ -24,15 +24,21 @@ public class LivroService {
     }
 
     public Livro findByNome(String nome){
-        return livroRepository.findByNome(nome).orElseThrow(()-> new ObjetoNaoEncontradoException("Não existe o nome: " +nome));
+        return livroRepository.findByNome(nome).orElseThrow(
+                () -> new ObjetoNaoEncontradoException
+                        (" ' "+ nome + " ' não existe na base de dados"));
     }
 
     public Livro findByIsbn(String isbn){
-        return livroRepository.findByIsbn(isbn).orElseThrow(() -> new ObjetoNaoEncontradoException("Não existe o id: " +isbn));
+        return livroRepository.findByIsbn(isbn).orElseThrow(
+                () -> new ObjetoNaoEncontradoException
+                        (" ' "+ isbn + " ' não existe na base de dados"));
     }
 
     public Livro findByArea(String area){
-        return livroRepository.findByArea(area).orElseThrow(()-> new ObjetoNaoEncontradoException("Não existe a area: " +area));
+        return livroRepository.findByArea(area).orElseThrow(
+                () -> new ObjetoNaoEncontradoException
+                        (" ' "+ area + " ' não existe na base de dados"));
     }
 
 

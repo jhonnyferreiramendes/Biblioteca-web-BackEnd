@@ -24,7 +24,9 @@ public class BibliotecaService {
         return bibliotecaRepository.save(biblioteca);
     }
 
-    public Biblioteca findByNome(String nome){ return bibliotecaRepository.findByNome(nome).orElseThrow(()-> new ObjetoNaoEncontradoException("Nao foi encontrado o nome: " + nome));}
+    public Biblioteca findByNome(String nome){ return bibliotecaRepository.findByNome(nome).orElseThrow(
+            () -> new ObjetoNaoEncontradoException
+                    (" ' "+ nome + " ' não existe na base de dados"));}
 
 
 }

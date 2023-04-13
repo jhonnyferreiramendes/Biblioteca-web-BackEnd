@@ -32,7 +32,8 @@ public class BibliotecarioService {
 
 
     public Bibliotecario findByNome(String nome) {
-        return bibliotecarioRepository.findByNome(nome).orElseThrow(()-> new ObjetoNaoEncontradoException("Não foi encontrado nenhum nome: " +nome ));
+        return bibliotecarioRepository.findByNome(nome).orElseThrow(() -> new ObjetoNaoEncontradoException
+                (" ' "+ nome + " ' não existe na base de dados"));
     }
 
 

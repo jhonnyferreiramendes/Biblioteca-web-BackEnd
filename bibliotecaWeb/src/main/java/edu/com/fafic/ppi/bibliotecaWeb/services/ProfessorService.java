@@ -1,6 +1,7 @@
 package edu.com.fafic.ppi.bibliotecaWeb.services;
 
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Professor;
+import edu.com.fafic.ppi.bibliotecaWeb.domain.exceptions.ObjetoNaoEncontradoException;
 import edu.com.fafic.ppi.bibliotecaWeb.dto.ProfessorDTO;
 import edu.com.fafic.ppi.bibliotecaWeb.repositories.ProfessorRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,9 +29,11 @@ public class ProfessorService {
     }
 
     public Professor findByNome(String nome){
-        return professorRepository.findByNome(nome);
+        return professorRepository.findByNome(nome).orElseThrow(() -> new ObjetoNaoEncontradoException
+                (" ' "+ nome + " ' não existe na base de dados"));
     }
 
-    public Professor findByMatricula(String matricula){ return professorRepository.findByMatricula(matricula);}
+    public Professor findByMatricula(String matricula){ return professorRepository.findByMatricula(matricula).orElseThrow(() -> new ObjetoNaoEncontradoException
+            (" ' "+ matricula + " ' não existe na base de dados"));}
 
 }

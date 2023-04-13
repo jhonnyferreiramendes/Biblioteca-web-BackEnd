@@ -1,6 +1,7 @@
 package edu.com.fafic.ppi.bibliotecaWeb.services;
 
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Aluno;
+import edu.com.fafic.ppi.bibliotecaWeb.domain.exceptions.ObjetoNaoEncontradoException;
 import edu.com.fafic.ppi.bibliotecaWeb.dto.AlunoDTO;
 import edu.com.fafic.ppi.bibliotecaWeb.repositories.AlunoRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,11 +29,13 @@ public class AlunoService {
     }
 
     public Aluno findByNome(String nome){
-        return alunoRepository.findByNome(nome);
+        return alunoRepository.findByNome(nome).orElseThrow(() -> new ObjetoNaoEncontradoException
+                (" ' "+ nome + " ' não existe na base de dados"));
     }
 
     public Aluno findByMatricula(String matricula){
-        return alunoRepository.findByMatricula(matricula);
+        return alunoRepository.findByMatricula(matricula).orElseThrow(() -> new ObjetoNaoEncontradoException
+                (" ' "+ matricula + " ' não existe na base de dados"));
     }
 
 
