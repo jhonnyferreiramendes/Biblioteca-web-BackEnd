@@ -2,6 +2,7 @@ package edu.com.fafic.ppi.bibliotecaWeb.services;
 
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Aluno;
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Bibliotecario;
+import edu.com.fafic.ppi.bibliotecaWeb.domain.exceptions.ObjetoNaoEncontradoException;
 import edu.com.fafic.ppi.bibliotecaWeb.dto.AlunoDTO;
 import edu.com.fafic.ppi.bibliotecaWeb.dto.BibliotecarioDTO;
 import edu.com.fafic.ppi.bibliotecaWeb.repositories.AlunoRepository;
@@ -31,7 +32,7 @@ public class BibliotecarioService {
 
 
     public Bibliotecario findByNome(String nome) {
-        return bibliotecarioRepository.findByNome(nome);
+        return bibliotecarioRepository.findByNome(nome).orElseThrow(()-> new ObjetoNaoEncontradoException("Não foi encontrado nenhum nome: " +nome ));
     }
 
 

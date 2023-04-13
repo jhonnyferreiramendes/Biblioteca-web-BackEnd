@@ -24,15 +24,15 @@ public class LivroService {
     }
 
     public Livro findByNome(String nome){
-        return livroRepository.findByNome(nome);
+        return livroRepository.findByNome(nome).orElseThrow(()-> new ObjetoNaoEncontradoException("Não existe o nome: " +nome));
     }
 
     public Livro findByIsbn(String isbn){
-        return livroRepository.findByIsbn(isbn);
+        return livroRepository.findByIsbn(isbn).orElseThrow(() -> new ObjetoNaoEncontradoException("Não existe o id: " +isbn));
     }
 
     public Livro findByArea(String area){
-        return livroRepository.findByArea(area);
+        return livroRepository.findByArea(area).orElseThrow(()-> new ObjetoNaoEncontradoException("Não existe a area: " +area));
     }
 
 

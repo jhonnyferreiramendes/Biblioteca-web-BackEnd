@@ -1,6 +1,7 @@
 package edu.com.fafic.ppi.bibliotecaWeb.services;
 
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Biblioteca;
+import edu.com.fafic.ppi.bibliotecaWeb.domain.exceptions.ObjetoNaoEncontradoException;
 import edu.com.fafic.ppi.bibliotecaWeb.dto.BibliotecaDTO;
 import edu.com.fafic.ppi.bibliotecaWeb.repositories.BibliotecaRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class BibliotecaService {
         return bibliotecaRepository.save(biblioteca);
     }
 
-    public Biblioteca findByNome(String nome){ return bibliotecaRepository.findByNome(nome);}
+    public Biblioteca findByNome(String nome){ return bibliotecaRepository.findByNome(nome).orElseThrow(()-> new ObjetoNaoEncontradoException("Nao foi encontrado o nome: " + nome));}
 
 
 }
