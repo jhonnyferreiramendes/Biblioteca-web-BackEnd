@@ -1,21 +1,21 @@
 package edu.com.fafic.ppi.bibliotecaWeb.dto;
 
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Bibliotecario;
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Livro;
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Usuario;
+import edu.com.fafic.ppi.bibliotecaWeb.domain.*;
+import lombok.Data;
 
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.NotBlank;
+
 import java.util.List;
+
+@Data
 
 public class BibliotecaDTO {
 
-    private Long id;
     private String nome;
     private String nomeInstituicao;
     private Bibliotecario bibliotecario;
     private List<Livro> livros;
-    private List <Usuario> usuarios;
+    private List <Professor> professor;
+     private List <Aluno> aluno;
+
 
 }

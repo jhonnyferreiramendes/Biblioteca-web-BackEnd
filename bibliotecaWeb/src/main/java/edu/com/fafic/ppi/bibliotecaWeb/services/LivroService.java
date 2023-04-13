@@ -1,6 +1,7 @@
 package edu.com.fafic.ppi.bibliotecaWeb.services;
 
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Livro;
+import edu.com.fafic.ppi.bibliotecaWeb.domain.exceptions.ObjetoNaoEncontradoException;
 import edu.com.fafic.ppi.bibliotecaWeb.dto.LivroDTO;
 import edu.com.fafic.ppi.bibliotecaWeb.repositories.LivroRepository;
 import lombok.RequiredArgsConstructor;
@@ -33,5 +34,6 @@ public class LivroService {
     public Livro findByArea(String area){
         return livroRepository.findByArea(area);
     }
+
 
 }

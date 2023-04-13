@@ -31,14 +31,26 @@ public class Biblioteca {
     @OneToOne
     private Bibliotecario bibliotecario;
 
-
     @OneToMany
     private List <Livro> livros;
 
     @OneToMany
-    private List <Usuario> usuarios;
+    private List <Professor> professor;
+
+    @OneToMany
+    private List <Aluno> aluno;
 
 
 
 
+
+
+    public Biblioteca( String nome, String nomeInstituicao, Bibliotecario bibliotecario, List<Livro> livros, List <Professor> professor, List<Aluno> aluno) {
+        this.nome = nome;
+        this.nomeInstituicao = nomeInstituicao;
+        this.bibliotecario = bibliotecario;
+        this.livros = livros;
+        this.professor = professor;
+        this.aluno = aluno;
+    }
 }

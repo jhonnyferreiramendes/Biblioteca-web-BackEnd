@@ -2,6 +2,8 @@ package edu.com.fafic.ppi.bibliotecaWeb.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,23 +23,25 @@ public class Emprestimo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @ManyToOne
-    private Usuario usuario;
+    @OneToOne
+    private Aluno aluno;
 
-    @NotBlank
+    @OneToOne
+    private Professor professor;
+
+
+    @NotNull
     private LocalDateTime dataEmprestimo;
 
-
-    @NotBlank
-    @OneToOne
-    private Livro livrosLocados;
+    @OneToMany
+    private List <Livro> livrosLocados;
 
     @Embedded
     private Devolucao devolucao;
 
-    public Emprestimo(Usuario usuario, LocalDateTime dataEmprestimo, Livro livrosLocados, Devolucao devolucao) {
-        this.usuario = usuario;
+    public Emprestimo(Aluno aluno,Professor professor, LocalDateTime dataEmprestimo, List<Livro> livrosLocados, Devolucao devolucao) {
+        this.aluno = aluno;
+        this.professor = professor;
         this.dataEmprestimo = dataEmprestimo;
         this.livrosLocados = livrosLocados;
         this.devolucao = devolucao;

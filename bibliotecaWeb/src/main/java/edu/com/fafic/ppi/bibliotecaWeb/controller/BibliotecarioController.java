@@ -73,8 +73,8 @@ public class BibliotecarioController {
     }
 
     @GetMapping("/buscarArea/livro/{livro}")
-    public ResponseEntity<Livro> findByAreaLivro (@PathVariable("livro") String area){
-        return ResponseEntity.ok(livroService.findByArea(area));
+    public ResponseEntity<Livro> findByAreaLivro (@PathVariable("livro") Enum area){
+        return ResponseEntity.ok(livroService.findByArea(area.name()));
     }
 
     @GetMapping("/buscarIsbn/livro/{livro}")
@@ -83,7 +83,7 @@ public class BibliotecarioController {
     }
 
     @GetMapping("/buscarNome/livro/{livro}")
-    public ResponseEntity<Livro> findByNomeLivro (@PathVariable("livro") String nome){
+    public ResponseEntity<Livro> findByNomeOrIsbnLivro (@PathVariable("livro") String nome){
         return ResponseEntity.ok(livroService.findByNome(nome));
     }
 

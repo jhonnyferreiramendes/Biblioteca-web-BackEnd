@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-
 public class Bibliotecario extends Usuario{
      @NotBlank
      @Column(unique = true)

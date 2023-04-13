@@ -3,6 +3,7 @@ package edu.com.fafic.ppi.bibliotecaWeb.dto;
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Contato;
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Endereco;
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Login;
+import edu.com.fafic.ppi.bibliotecaWeb.domain.Usuario;
 import edu.com.fafic.ppi.bibliotecaWeb.enums.Genero;
 import lombok.Data;
 import org.hibernate.validator.constraints.br.CPF;
@@ -32,4 +33,5 @@ public class BibliotecarioDTO {
     private Login login;
 
     private String cib;
+
 }

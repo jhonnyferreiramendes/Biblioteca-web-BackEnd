@@ -1,8 +1,6 @@
 package edu.com.fafic.ppi.bibliotecaWeb.dto;
 
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Devolucao;
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Livro;
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Usuario;
+import edu.com.fafic.ppi.bibliotecaWeb.domain.*;
 import lombok.Data;
 
 import javax.persistence.Embedded;
@@ -10,13 +8,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class EmprestimoDTO {
 
-    private Usuario usuario;
+    private Aluno aluno;
+    private Professor professor;
     private LocalDateTime dataEmprestimo;
-    private Livro livrosLocados;
+    private List<Livro> livrosLocados;
     private Devolucao devolucao;
 
 }

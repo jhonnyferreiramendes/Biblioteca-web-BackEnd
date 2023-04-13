@@ -2,6 +2,8 @@ package edu.com.fafic.ppi.bibliotecaWeb.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import lombok.Data;
 
 
@@ -13,7 +15,7 @@ import java.time.LocalDateTime;
 
 public class Devolucao {
 
-    @NotBlank
+
     private LocalDateTime dataDevolucao;
 
     @NotBlank

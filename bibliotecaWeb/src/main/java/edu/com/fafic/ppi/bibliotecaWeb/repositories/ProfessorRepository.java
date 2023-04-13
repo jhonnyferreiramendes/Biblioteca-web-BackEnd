@@ -1,7 +1,5 @@
 package edu.com.fafic.ppi.bibliotecaWeb.repositories;
 
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Aluno;
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Bibliotecario;
 import edu.com.fafic.ppi.bibliotecaWeb.domain.Professor;
 import org.springframework.data.jpa.repository.JpaRepository;
 

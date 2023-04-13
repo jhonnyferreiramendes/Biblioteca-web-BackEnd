@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 public class BibliotecarioService {
 
     private final BibliotecarioRepository bibliotecarioRepository;
-    private final AlunoRepository alunoRepository;
 
     public Bibliotecario save(BibliotecarioDTO bibliotecarioDTO) {
         var bibliotecario = new Bibliotecario(
@@ -34,6 +33,8 @@ public class BibliotecarioService {
     public Bibliotecario findByNome(String nome) {
         return bibliotecarioRepository.findByNome(nome);
     }
+
+
 
 
 }

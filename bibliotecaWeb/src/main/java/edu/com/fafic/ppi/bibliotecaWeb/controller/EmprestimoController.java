@@ -18,7 +18,7 @@ public class EmprestimoController {
 
     public final EmprestimoService emprestimoService;
 
-    @PostMapping("/criar/bibliotecario")
+    @PostMapping("/criar")
     public ResponseEntity save(@RequestBody EmprestimoDTO emprestimoDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(emprestimoService.saveEmprestimo(emprestimoDTO));
     }

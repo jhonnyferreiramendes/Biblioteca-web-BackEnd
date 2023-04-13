@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
+
 @Entity
 @Data
 @Builder
@@ -37,4 +38,5 @@ public class Livro {
         this.isbn = isbn;
         this.area = area;
     }
+
 }
