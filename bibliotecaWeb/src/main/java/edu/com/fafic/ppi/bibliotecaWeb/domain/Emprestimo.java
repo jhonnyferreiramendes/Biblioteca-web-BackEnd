@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Emprestimo {
 
     @Id
@@ -31,19 +33,16 @@ public class Emprestimo {
 
 
     @NotNull
-    private LocalDateTime dataEmprestimo;
+    private LocalDate dataEmprestimo;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List <Livro> livrosLocados;
 
-    @Embedded
-    private Devolucao devolucao;
 
-    public Emprestimo(Aluno aluno,Professor professor, LocalDateTime dataEmprestimo, List<Livro> livrosLocados, Devolucao devolucao) {
+    public Emprestimo(Aluno aluno,Professor professor, LocalDate dataEmprestimo, List<Livro> livrosLocados) {
         this.aluno = aluno;
         this.professor = professor;
         this.dataEmprestimo = dataEmprestimo;
         this.livrosLocados = livrosLocados;
-        this.devolucao = devolucao;
     }
 }

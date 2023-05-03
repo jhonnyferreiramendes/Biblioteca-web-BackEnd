@@ -10,6 +10,7 @@ import java.util.Optional;
 public interface BibliotecarioRepository extends JpaRepository<Bibliotecario, Long> {
 
     Optional <Bibliotecario> findByNome(String nome);
+    Optional <Bibliotecario> findByCib(String cib);
 
 
 

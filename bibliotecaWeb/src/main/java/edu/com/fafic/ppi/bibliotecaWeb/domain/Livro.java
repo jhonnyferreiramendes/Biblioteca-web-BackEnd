@@ -1,5 +1,6 @@
 package edu.com.fafic.ppi.bibliotecaWeb.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.com.fafic.ppi.bibliotecaWeb.enums.Area;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -32,6 +33,9 @@ public class Livro {
 
     @Enumerated(EnumType.STRING)
     private Area area;
+
+
+
 
     public Livro(String nome, String isbn, Area area) {
         this.nome = nome;

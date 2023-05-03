@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface BibliotecaRepository extends JpaRepository<Biblioteca,Long> {
 
    Optional<Biblioteca> findByNome(String nome);
+   Biblioteca findBy();
 
 
 }

@@ -1,18 +1,9 @@
 package edu.com.fafic.ppi.bibliotecaWeb.controller;
 
 
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Aluno;
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Bibliotecario;
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Livro;
-import edu.com.fafic.ppi.bibliotecaWeb.domain.Professor;
-import edu.com.fafic.ppi.bibliotecaWeb.dto.AlunoDTO;
-import edu.com.fafic.ppi.bibliotecaWeb.dto.BibliotecarioDTO;
-import edu.com.fafic.ppi.bibliotecaWeb.dto.LivroDTO;
-import edu.com.fafic.ppi.bibliotecaWeb.dto.ProfessorDTO;
-import edu.com.fafic.ppi.bibliotecaWeb.services.AlunoService;
-import edu.com.fafic.ppi.bibliotecaWeb.services.BibliotecarioService;
-import edu.com.fafic.ppi.bibliotecaWeb.services.LivroService;
-import edu.com.fafic.ppi.bibliotecaWeb.services.ProfessorService;
+import edu.com.fafic.ppi.bibliotecaWeb.domain.*;
+import edu.com.fafic.ppi.bibliotecaWeb.dto.*;
+import edu.com.fafic.ppi.bibliotecaWeb.services.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +19,9 @@ public class BibliotecarioController {
     private final LivroService livroService;
     private final AlunoService alunoService;
     private final ProfessorService professorService;
+    private final EmprestimoService emprestimoService;
+    private final DevolucaoService devolucaoService;
+
 
     @PostMapping("/criar/bibliotecario")
     public ResponseEntity save(@RequestBody BibliotecarioDTO bibliotecarioDTO){
@@ -48,6 +42,30 @@ public class BibliotecarioController {
         return ResponseEntity.status(HttpStatus.CREATED).
                 body(livroService.saveLivro(livroDTO));
     }
+    @PostMapping("/criar/emprestimo")
+    public ResponseEntity saveEmprestimo(@RequestBody EmprestimoDTO emprestimoDTO){
+        return ResponseEntity.status(HttpStatus.CREATED).body(emprestimoService.saveEmprestimo(emprestimoDTO));
+    }
+
+    @PostMapping("/criar/devolucao")
+    public ResponseEntity saveDevolucao(@RequestBody DevolucaoDTO devolucaoDTO){
+        return ResponseEntity.status(HttpStatus.CREATED).body(devolucaoService.saveDevolucao(devolucaoDTO));
+    }
+
+    @PutMapping("/editar/bibliotecario")
+    public ResponseEntity updateBibliotecario(@RequestBody Bibliotecario bibliotecario){
+        Bibliotecario bibliotecarioUPD = bibliotecarioService.update(bibliotecario);
+        return ResponseEntity.ok().body(bibliotecario);
+    }
+
+    @PutMapping("editar/livro")
+    public ResponseEntity updateLivro(@RequestBody Livro livro){
+        Livro livroUPD = livroService.update(livro);
+        return ResponseEntity.ok().body(livro);
+    }
+
+
+
     @GetMapping("/buscarNome/bibliotecario/{bibliotecario}")
     public ResponseEntity <Bibliotecario> findByNomeBibliotecario(@PathVariable("bibliotecario")String nome){
         return ResponseEntity.ok(bibliotecarioService.findByNome(nome));
@@ -87,5 +105,34 @@ public class BibliotecarioController {
         return ResponseEntity.ok(livroService.findByNome(nome));
     }
 
+    @DeleteMapping("/removerLivro/{isbn}")
+    public ResponseEntity <Livro> removerPorIsbn (@PathVariable String isbn) {
+        livroService.remover(isbn);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/removerLivro2/{isbn}")
+    public ResponseEntity <Livro> remover2 (@PathVariable String isbn) {
+        livroService.remover(isbn);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/removerAluno/{matricula}")
+    public ResponseEntity <Aluno> removerAlunoPorMatricula (@PathVariable String matricula) {
+        alunoService.remover(matricula);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/removerProfessor/{matricula}")
+    public ResponseEntity <Professor> removerProfessorPorMatricula (@PathVariable String matricula) {
+        professorService.remover(matricula);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/removerBibliotecario/{cib}")
+    public ResponseEntity <Bibliotecario> removerBibliotecarioPorCib (@PathVariable String cib) {
+        bibliotecarioService.remover(cib);
+        return ResponseEntity.ok().build();
+    }
 
 }

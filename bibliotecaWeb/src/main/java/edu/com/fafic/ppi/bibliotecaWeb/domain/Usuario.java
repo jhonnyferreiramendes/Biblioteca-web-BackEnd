@@ -38,6 +38,7 @@ public abstract class Usuario {
     private Genero genero;
 
     @NotBlank
+    @Column(unique = true)
     @Size (max = 6)
     private String matricula;
 

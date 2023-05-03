@@ -7,6 +7,7 @@ import javax.persistence.Embedded;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,8 +16,7 @@ public class EmprestimoDTO {
 
     private Aluno aluno;
     private Professor professor;
-    private LocalDateTime dataEmprestimo;
+    private LocalDate dataEmprestimo;
     private List<Livro> livrosLocados;
-    private Devolucao devolucao;
 
 }

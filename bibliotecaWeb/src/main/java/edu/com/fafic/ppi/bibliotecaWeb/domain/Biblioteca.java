@@ -28,16 +28,16 @@ public class Biblioteca {
     @NotBlank
     private String nomeInstituicao;
 
-    @OneToOne
+    @OneToOne (cascade = CascadeType.ALL)
     private Bibliotecario bibliotecario;
 
-    @OneToMany
+    @OneToMany (cascade = CascadeType.ALL)
     private List <Livro> livros;
 
-    @OneToMany
+    @OneToMany//(cascade = CascadeType.ALL)
     private List <Professor> professor;
 
-    @OneToMany
+    @OneToMany//(cascade = CascadeType.ALL)
     private List <Aluno> aluno;
 
 
@@ -45,7 +45,7 @@ public class Biblioteca {
 
 
 
-    public Biblioteca( String nome, String nomeInstituicao, Bibliotecario bibliotecario, List<Livro> livros, List <Professor> professor, List<Aluno> aluno) {
+    public Biblioteca( String nome, String nomeInstituicao,Bibliotecario bibliotecario,List<Livro> livros, List <Professor> professor, List<Aluno> aluno) {
         this.nome = nome;
         this.nomeInstituicao = nomeInstituicao;
         this.bibliotecario = bibliotecario;

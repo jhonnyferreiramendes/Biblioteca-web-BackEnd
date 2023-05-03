@@ -1,5 +1,6 @@
 package edu.com.fafic.ppi.bibliotecaWeb.dto;
 
+import edu.com.fafic.ppi.bibliotecaWeb.domain.Biblioteca;
 import edu.com.fafic.ppi.bibliotecaWeb.enums.Area;
 import lombok.Data;
 
@@ -20,6 +21,8 @@ public class LivroDTO {
 
 
     private Area area;
+
+
 
 
 }
