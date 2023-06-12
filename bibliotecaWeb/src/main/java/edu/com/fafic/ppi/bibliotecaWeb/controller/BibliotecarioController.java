@@ -24,7 +24,7 @@ public class BibliotecarioController {
 
 
     @PostMapping("/criar/bibliotecario")
-    public ResponseEntity save(@RequestBody BibliotecarioDTO bibliotecarioDTO){
+    public ResponseEntity saveBibliotecario(@RequestBody BibliotecarioDTO bibliotecarioDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(bibliotecarioService.save(bibliotecarioDTO));
     }
     @PostMapping("/criar/aluno")
@@ -64,7 +64,29 @@ public class BibliotecarioController {
         return ResponseEntity.ok().body(livro);
     }
 
+    @PutMapping("editar/aluno")
+    public ResponseEntity updateAluno(@RequestBody Aluno aluno){
+        Aluno alunoUPD = alunoService.update(aluno);
+        return ResponseEntity.ok().body(aluno);
+    }
 
+    @PutMapping("editar/professor")
+    public ResponseEntity updateProfessor(@RequestBody Professor professor){
+        Professor professorUPD = professorService.update(professor);
+        return ResponseEntity.ok().body(professor);
+    }
+
+    @PutMapping("editar/emprestimo")
+    public ResponseEntity updateEmprestimo(@RequestBody Emprestimo emprestimo){
+        Emprestimo emprestimoUPD = emprestimoService.update(emprestimo);
+        return ResponseEntity.ok().body(emprestimo);
+    }
+
+    @PutMapping("editar/devolucao")
+    public ResponseEntity updateProfessor(@RequestBody Devolucao devolucao){
+        Devolucao devolucaoUPD = devolucaoService.update(devolucao);
+        return ResponseEntity.ok().body(devolucao);
+    }
 
     @GetMapping("/buscarNome/bibliotecario/{bibliotecario}")
     public ResponseEntity <Bibliotecario> findByNomeBibliotecario(@PathVariable("bibliotecario")String nome){
@@ -105,8 +127,18 @@ public class BibliotecarioController {
         return ResponseEntity.ok(livroService.findByNome(nome));
     }
 
+    @GetMapping("/buscarEmprestimo/Emprestimo/{emprestimo}")
+    public ResponseEntity<Emprestimo> findByEmprestimoID(@PathVariable("emprestimo") Long id){
+        return ResponseEntity.ok(emprestimoService.findById(id));
+    }
+
+    @GetMapping("/buscarDevolucao/Devolucao/{devolucao}")
+    public ResponseEntity<Devolucao> findByDevolucaoID(@PathVariable("devolucao") Long id){
+        return ResponseEntity.ok(devolucaoService.findById(id));
+    }
+
     @DeleteMapping("/removerLivro/{isbn}")
-    public ResponseEntity <Livro> removerPorIsbn (@PathVariable String isbn) {
+    public ResponseEntity <Livro> removerLivroPorIsbn (@PathVariable String isbn) {
         livroService.remover(isbn);
         return ResponseEntity.ok().build();
     }
@@ -132,6 +164,18 @@ public class BibliotecarioController {
     @DeleteMapping("/removerBibliotecario/{cib}")
     public ResponseEntity <Bibliotecario> removerBibliotecarioPorCib (@PathVariable String cib) {
         bibliotecarioService.remover(cib);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/removerEmprestimo/{id}")
+    public ResponseEntity <Emprestimo> removerEmprestimoPorId (@PathVariable Long id) {
+        emprestimoService.remover(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/removerDevolucao/{id}")
+    public ResponseEntity <Devolucao> removerDevolucaoPorId (@PathVariable Long id) {
+        devolucaoService.remover(id);
         return ResponseEntity.ok().build();
     }
 

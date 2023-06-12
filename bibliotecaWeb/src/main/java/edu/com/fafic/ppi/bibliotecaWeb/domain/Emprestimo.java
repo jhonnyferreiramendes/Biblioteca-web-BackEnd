@@ -35,8 +35,9 @@ public class Emprestimo {
     @NotNull
     private LocalDate dataEmprestimo;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(/*cascade = CascadeType.ALL, orphanRemoval = true*/)
     private List <Livro> livrosLocados;
+
 
 
     public Emprestimo(Aluno aluno,Professor professor, LocalDate dataEmprestimo, List<Livro> livrosLocados) {

@@ -19,4 +19,5 @@ public class EmprestimoDTO {
     private LocalDate dataEmprestimo;
     private List<Livro> livrosLocados;
 
+
 }

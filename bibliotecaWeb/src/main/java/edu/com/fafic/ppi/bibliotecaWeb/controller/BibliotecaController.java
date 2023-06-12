@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/Biblioteca")
+@RequestMapping("/biblioteca")
 public class BibliotecaController {
 
     private final BibliotecaService bibliotecaService;

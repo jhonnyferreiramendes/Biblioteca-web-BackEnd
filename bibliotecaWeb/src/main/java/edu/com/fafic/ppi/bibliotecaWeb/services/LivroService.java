@@ -69,6 +69,8 @@ public class LivroService {
     }
 
     public Livro update(Livro livro) {
+        var biblioteca = bibliotecaRepository.findBy();
+        bibliotecaRepository.save(biblioteca);
         return livroRepository.save(livro);
     }
 
